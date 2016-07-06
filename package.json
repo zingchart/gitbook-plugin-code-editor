@@ -1,0 +1,19 @@
+{
+  "name": "gitbook-plugin-code-editor",
+  "version": "1.0.0",
+  "description": "Plugin for Gitbook that displays and runs code from external file.  Code is displayed in an Ace editor",
+  "main": "index.js",
+  "engines": {
+    "gitbook": ">=2.x.x"
+  },
+  "dependencies": {
+    "htmlencode": "0.0.4",
+    "q": "*"
+  },
+  "keywords": [
+    "gitbook",
+    "include"
+  ],
+  "author": "ZingChart",
+  "license": "MIT"
+}
