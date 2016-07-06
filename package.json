@@ -1,6 +1,6 @@
 {
   "name": "gitbook-plugin-code-editor",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Plugin for Gitbook that displays and runs code from external file.  Code is displayed in an Ace editor",
   "main": "index.js",
   "engines": {
@@ -15,5 +15,10 @@
     "include"
   ],
   "author": "ZingChart",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/zingchart/gitbook-plugin-code-editor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zingchart/gitbook-plugin-code-editor.git"
+  }
 }

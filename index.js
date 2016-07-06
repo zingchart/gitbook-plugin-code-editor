@@ -57,6 +57,7 @@ module.exports = {
                 options.editorSettings = settings;
                 options.height = height;
                 options.id = id;
+                options.initTab = config.initTab || 'html';
 
                 return editorLoad.load(options);
               });
