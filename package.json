@@ -1,6 +1,6 @@
 {
   "name": "gitbook-plugin-code-editor",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Plugin for Gitbook that displays and runs code from external file.  Code is displayed in an Ace editor",
   "main": "index.js",
   "engines": {

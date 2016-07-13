@@ -1,24 +1,22 @@
 html,body{
-    margin: 0px;
+    margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     height: 100%;
     width : 100%;
 }
-.zc-commands{
-    float:left;
+
+
+.zc-editor {
+    width:100%;
 }
-.zc-actions{
-    float:right;
-}
+
 .zc-top{
-    position:absolute;
     white-space:nowrap;
     width:100%;
     height:30px;
-    min-width: 330px;
     border-bottom: 1px solid #c1c1c1;
-    padding-right:20px;
 }
+.zc-top:after { content:''; display:block; clear:both; }
 .zc-top.blue{
     background-color: #29A2CC;
     color:white;
@@ -32,6 +30,16 @@ html,body{
     color:white;
 }
 
+
+
+
+.zc-commands{
+    float:left;
+}
+.zc-actions{
+    float:right;
+}
+
 .zc-content{
     overflow:hidden;
     height: 100%;
@@ -39,9 +47,8 @@ html,body{
 }
 .zc-btn{
     position: relative;
+    padding:0 15px;
     float:left;
-    min-width:70px;
-    max-width:70px;
     height:30px;
     line-height:30px;
     text-align:center;
@@ -133,13 +140,41 @@ html,body{
 }
 
 .zc-cont {
-    padding-top: 30px;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    padding: 15px 0;
     height:100%;
     width:100%;
-    background-color: white;
     overflow-y:scroll;
+    background-color: #fff;
+    border:1px solid #d0d0d0;
+    box-sizing: border-box;
+}
+.zc-cont[id*="css"],
+.zc-cont[id*="html"],
+.zc-cont[id*="js"] {
+    background-color: #ececec;
+}
+.zc-cont[id*="result"] {
+    padding:15px;
+    border-width:15px;
+    border-color:#ececec;
+}
+
+.zc-cont pre { margin-bottom:0 !important; }
+
+.zc-cont .ace-chrome .ace_gutter {
+    border:1px solid #d0d0d0; border-width:1px 0;
+}
+
+.zc-cont .ace-chrome .ace_scroller {
+    border:1px solid #d0d0d0; border-width:1px 0;
+}
+
+.zc-cont .ace-chrome .ace_marker-layer .ace_active-line {
+    background: rgba(112,186,212,.15);
+}
+
+.zc-cont .ace-chrome .ace_storage, .ace-chrome .ace_keyword, .ace-chrome .ace_meta.ace_tag {
+    color:
 }
 
 pre{
