@@ -1,6 +1,12 @@
 
 GitBook Plugin to display and run included files.
 ==============
+### View/Edit Code in ACE Editor
+![Editor View](/assets/images/editor.png)
+
+### Run code in Page
+![Run](/assets/images/run.png)
+
 
 ### 1. You can use install it via **NPM** and save it to package.json:
 ```
