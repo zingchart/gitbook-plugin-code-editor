@@ -15,7 +15,7 @@ $ npm install gitbook-plugin-code-editor --save
 ### 2. Add the plugin to `book.json` config
 ```
 {
-    "plugins": [ "include-code-editor"]
+    "plugins": [ "code-editor"]
 }
 ```
 
