@@ -39,6 +39,8 @@ $ npm install gitbook-plugin-code-editor --save
 #### General Attributes
 
 * `src` *required* - The relative path to the file that will be displayed in the editor and run in page.
+* `singleTab` *optional* - Can be set to `false`, `html`, `result`.  If `html` or `result`, only that tab will be shown.
+    * default: `false`
 
 #### Editor Attributes
 
