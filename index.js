@@ -58,6 +58,10 @@ module.exports = {
                 options.height = height;
                 options.id = id;
                 options.initTab = config.initTab || 'html';
+                options.singleTab = config.singleTab || false;
+                if (options.singleTab){
+                  options.initTab = options.singleTab;
+                }
 
                 return editorLoad.load(options);
               });

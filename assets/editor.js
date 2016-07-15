@@ -5,13 +5,17 @@ require(["gitbook"], function(gitbook) {
 });
 
 function initEditors(){
-  var blocks = document.getElementsByClassName('zc-top');
+  var blocks = document.getElementsByClassName('zc-editor');
   for (var i=0;i<blocks.length;i++){
-    initEditor(blocks[i].dataset.id);
+    initEditor(blocks[i].dataset.id, blocks[i].dataset.singleTab);
   }
 }
 
-function initEditor(id) {
+function initEditor(id, singleTab) {
+  if (singleTab === 'false'){
+    singleTab = false;
+  }
+
   var editor = initAce(id);
 
   var obj = {
@@ -20,13 +24,14 @@ function initEditor(id) {
     css: document.getElementById('init-css' + id).value
   };
 
+  //when we do js and css in the future, we'll need to check for active tabs here.
   obj.js = obj.js.replace(/>/g, '&gt;');
   obj.js = obj.js.replace(/</g, '&lt;');
   document.getElementById('css-code' + id).innerHTML = obj.css;
   document.getElementById('js-code' + id).innerHTML = obj.js;
 
   //Set default tab
-  toggle(document.getElementById('init-active' + id).value,  id);
+  toggle(document.getElementById('init-active' + id).value,  id, singleTab);
 }
 
 function initAce(id){
@@ -104,25 +109,31 @@ function createIframe(sHTML, id){
   document.getElementById('preview' + id).contentWindow.document.close();
 }
 
-function toggle(target, id){
+function toggle(target, id, singleTab){
   if (target === 'result'){
     updateIframeCode(id);
   }
 
-  var containers = ['result', 'html', 'js', 'css'];
-  for(var i =0; i < containers.length; i++){
-    var container = document.getElementById(containers[i] + id);
-    var btn = document.getElementById(containers[i]+'-btn' + id);
+  if (singleTab){
+    var container = document.getElementById(target + id);
+    container.style.display = "";
+  }
+  else {
+    var containers = ['result', 'html', 'js', 'css'];
+    for (var i = 0; i < containers.length; i++) {
+      var container = document.getElementById(containers[i] + id);
+      var btn = document.getElementById(containers[i] + '-btn' + id);
 
-    if(container.id === (target + id)){
-      container.style.display = "";
-      btn.className = "zc-btn active";
-    }
-    else{
-      if(btn){
-        btn.className = "zc-btn";
+      if (container.id === (target + id)) {
+        container.style.display = "";
+        btn.className = "zc-btn active";
       }
-      container.style.display = "none";
+      else {
+        if (btn) {
+          btn.className = "zc-btn";
+        }
+        container.style.display = "none";
+      }
     }
   }
 }

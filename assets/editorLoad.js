@@ -1,8 +1,10 @@
 function loadTemplate(options) {
-  return `
-    <div class="zc-editor">
-    
-      <div class="zc-top blue" data-id="${options.id}">
+  var str =  `
+    <div class="zc-editor" data-id="${options.id}" data-single-tab="${options.singleTab}">`;
+
+  if (!options.singleTab) {
+    str += `
+      <div class="zc-top blue">
         <div class="zc-actions">
           <div class="zc-btn" data-text="JSFiddle" onclick="exportToCodepen(${options.id});">
             <div>Export</div>
@@ -15,16 +17,20 @@ function loadTemplate(options) {
           <!--<div id="css-btn${options.id}" class="zc-btn" onclick="toggle('css', ${options.id})">CSS</div>-->
           <div id="result-btn${options.id}" class="zc-btn" onclick="toggle('result', ${options.id})">Result</div>
         </div>
-      </div>
-      
+      </div>`;
+  }
+
+    str += `
       <div class="zc-content">
-  
         <div id="html${options.id}" class="zc-cont" style="display:none; ">
           <div class="editor" id="codeeditor${options.id}" data-settings='${ JSON.stringify(options.editorSettings) }'>${options.html}</div>
-        </div>
-  
-        <div id="result${options.id}" class="zc-cont" style="overflow:hidden;" data-height="${options.height}"></div>
-  
+        </div>`;
+
+    if (!options.singleTab || options.singleTab === 'result') {
+      str += `<div id="result${options.id}" class="zc-cont" style="overflow:hidden;" data-height="${options.height}"></div>`;
+    }
+
+    str += `
         <div id="js${options.id}" class="zc-cont" style="display:none">
           <pre  id="js-code${options.id}" class="prettyprint linenums"></pre>
         </div>
@@ -48,6 +54,8 @@ function loadTemplate(options) {
       </div>
     </div>
   `;
+
+  return str;
 }
 
 module.exports.load = loadTemplate;
