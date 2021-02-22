@@ -1,3 +1,8 @@
+# 2021 UPDATE:
+
+**This plugin is no longer maintained. It will not work with newer versions of GitBook. This repository exists purely for historical reasons. No further updates will be made.**
+
+
 
 GitBook Plugin to display and run included files.
 ==============
